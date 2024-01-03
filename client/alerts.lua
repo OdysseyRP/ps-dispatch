@@ -788,3 +788,22 @@ local function SignRobbery()
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
 exports('SignRobbery', SignRobbery)
+
+local function MedicDrugRun(pickupSpot)
+    -- local coords = pickupSpot
+    print("ps-Dispatch: "..pickupSpot)
+
+    local dispatchData = {
+        message = 'Suspicious Package in area',
+        codeName = 'suspiciouspackage',
+        code = '10-87',
+        icon = 'fab fa-artstation',
+        priority = 2,
+        coords = pickupSpot,
+        street = GetStreetAndZone(pickupSpot),
+        jobs = { 'leo'}
+    }
+
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+end
+exports('MedicDrugRun', MedicDrugRun)
